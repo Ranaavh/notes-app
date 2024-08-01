@@ -1,0 +1,22 @@
+/* src/components/FloatingActionButton.css */
+.fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #142788 !important; /* Custom yellow color */
+  border: none !important;
+  border-radius: 50% !important;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff !important;
+  font-size: 16px !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.fab:hover {
+  background-color: #324ed8 !important; /* Darker yellow for hover effect */
+}

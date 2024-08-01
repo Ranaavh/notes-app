@@ -1,0 +1,108 @@
+body {
+  font-family: "Playfair Display", serif;
+  background: linear-gradient(135deg, #6598f6 0%, #919bb6 100%);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Set a max-width for the app */
+}
+
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.auth-container {
+  display: flex;
+  width: 80%;
+  max-width: 1200px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.auth-image {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 20px;
+  text-align: center;
+}
+
+.auth-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.auth-form {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-form-container h2 {
+  margin-bottom: 20px;
+}
+
+.auth-form-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #c8c8c8;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.auth-form-container button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  background: #142788;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.auth-form-container button:hover {
+  background: #59569c;
+}
+
+.auth-form-button {
+  width: 95%;
+  padding: 10px;
+  background: #142788;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.auth-form-button:hover {
+  background: #59569c;
+}

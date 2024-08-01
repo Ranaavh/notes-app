@@ -1,0 +1,16 @@
+.custom-navbar {
+  background-color: #142788 !important;
+}
+
+.custom-navbar .navbar-nav .nav-link,
+.custom-navbar .navbar-brand {
+  color: #fff !important;
+}
+
+.custom-navbar .nav-dropdown .dropdown-menu {
+  background-color: #142788;
+}
+
+.custom-navbar .nav-dropdown .dropdown-item {
+  color: #fff;
+}

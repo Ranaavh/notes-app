@@ -1,0 +1,117 @@
+.notes-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 90px;
+  min-height: 80vh;
+}
+
+.note-form {
+  margin-bottom: 20px;
+}
+
+.note-input {
+  margin-bottom: 10px;
+}
+
+.add-note-button {
+  display: block;
+  width: 100%;
+  background-color: #142788 !important;
+  border: none !important;
+  border-radius: 5px !important;
+  color: #fff !important;
+  cursor: pointer !important;
+  font-size: 16px !important;
+}
+
+.notes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.note-card {
+  width: 18rem;
+  background-color: #fff8e1 !important;
+  border-radius: 5px !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+.note-form-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-input,
+.modal-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.modal-textarea {
+  resize: none;
+}
+
+.note-form button {
+  align-self: flex-start;
+}
+
+.note-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style-type: none;
+  padding: 0;
+  justify-content: center;
+}
+
+.note-item {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 250px; /* Adjust the width as needed */
+}
+
+.note-item h3 {
+  margin-top: 0;
+}
+
+.note-item p {
+  margin-bottom: 10px;
+}
+
+.note-item button {
+  display: block;
+  margin-top: 10px;
+  background-color: #ffcc00 !important;
+  border: none !important;
+  padding: 5px 10px !important;
+  color: #fff !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+}
+
+.note-item button:hover {
+  background-color: #e6b800 !important;
+}
