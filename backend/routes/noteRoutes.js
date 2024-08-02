@@ -1,26 +1,13 @@
 const express = require("express");
-const jwt = require("jsonwebtoken");
+const { authMiddleware } = require("../middleware/authMiddleware"); // Import the middleware
 const Note = require("../models/Note");
 
 const router = express.Router();
 
-// Middleware to authenticate token
-const authenticateToken = (req, res, next) => {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
-  if (token == null) return res.sendStatus(401);
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403);
-    req.user = user;
-    next();
-  });
-};
-
 // Get notes
-router.get("/", authenticateToken, async (req, res) => {
+router.get("/", authMiddleware, async (req, res) => {
   try {
-    const notes = await Note.find({ user: req.user.userId });
+    const notes = await Note.find({ user: req.user._id }); // Use req.user._id
     res.json(notes);
   } catch (error) {
     res.status(400).json({ message: "Error fetching notes" });
@@ -28,13 +15,13 @@ router.get("/", authenticateToken, async (req, res) => {
 });
 
 // Add note
-router.post("/", authenticateToken, async (req, res) => {
+router.post("/", authMiddleware, async (req, res) => {
   const { title, content } = req.body;
   try {
     const note = new Note({
       title,
       content,
-      user: req.user.userId,
+      user: req.user._id, // Use req.user._id
     });
     await note.save();
     res.status(201).json(note);
@@ -44,7 +31,7 @@ router.post("/", authenticateToken, async (req, res) => {
 });
 
 // Delete note
-router.delete("/:id", authenticateToken, async (req, res) => {
+router.delete("/:id", authMiddleware, async (req, res) => {
   try {
     await Note.findByIdAndDelete(req.params.id);
     res.json({ message: "Note deleted successfully" });
