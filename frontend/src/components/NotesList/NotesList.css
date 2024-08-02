@@ -29,9 +29,8 @@
 .notes-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
   justify-content: center;
-  align-items: center;
+  gap: 2rem;
 }
 
 .note-card {
@@ -99,19 +98,4 @@
 
 .note-item p {
   margin-bottom: 10px;
-}
-
-.note-item button {
-  display: block;
-  margin-top: 10px;
-  background-color: #ffcc00 !important;
-  border: none !important;
-  padding: 5px 10px !important;
-  color: #fff !important;
-  border-radius: 4px !important;
-  cursor: pointer !important;
-}
-
-.note-item button:hover {
-  background-color: #e6b800 !important;
 }

@@ -5,6 +5,8 @@
 .custom-navbar .navbar-nav .nav-link,
 .custom-navbar .navbar-brand {
   color: #fff !important;
+  font-weight: 800;
+  font-size: 1.5rem;
 }
 
 .custom-navbar .nav-dropdown .dropdown-menu {
@@ -13,4 +15,13 @@
 
 .custom-navbar .nav-dropdown .dropdown-item {
   color: #fff;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .custom-navbar .navbar-nav .nav-link,
+  .custom-navbar .navbar-brand {
+    padding:  0 20px ;
+  }
 }
