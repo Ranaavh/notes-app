@@ -1,50 +1,36 @@
 const Note = require("../models/Note");
 
-// Get all notes
 const getNotes = async (req, res) => {
   try {
-    const notes = await Note.find();
+    const notes = await Note.find({ user: req.user._id });
     res.json(notes);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(400).json({ message: "Error fetching notes" });
   }
 };
 
-// Create a new note
 const createNote = async (req, res) => {
-  const note = new Note({
-    title: req.body.title,
-    content: req.body.content,
-  });
-
+  const { title, content } = req.body;
   try {
-    const newNote = await note.save();
-    res.status(201).json(newNote);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-};
-
-// Update a note
-const updateNote = async (req, res) => {
-  try {
-    const updatedNote = await Note.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
+    const note = new Note({
+      title,
+      content,
+      user: req.user._id,
     });
-    res.json(updatedNote);
+    await note.save();
+    res.status(201).json(note);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ message: "Error adding note" });
   }
 };
 
-// Delete a note
 const deleteNote = async (req, res) => {
   try {
     await Note.findByIdAndDelete(req.params.id);
-    res.json({ message: "Note deleted" });
+    res.json({ message: "Note deleted successfully" });
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ message: "Error deleting note" });
   }
 };
 
-module.exports = { getNotes, createNote, updateNote, deleteNote };
+module.exports = { getNotes, createNote, deleteNote };
