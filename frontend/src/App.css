@@ -1,6 +1,6 @@
 body {
   font-family: "Playfair Display", serif;
-  background: linear-gradient(135deg, #6598f6 0%, #919bb6 100%);
+  background: linear-gradient(135deg, #83a9f0 0%, #919bb6 100%);
   color: #333;
   margin: 0;
   padding: 0;
@@ -93,7 +93,7 @@ body {
 }
 
 .auth-form-button {
-  width: 95%;
+  width: 100%;
   padding: 10px;
   background: #142788;
   border: none;
