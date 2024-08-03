@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const Register = ({ onRegister }) => {
   const [username, setUsername] = useState("");
@@ -15,7 +16,7 @@ const Register = ({ onRegister }) => {
       onRegister();
     } catch (error) {
       console.error("Error registering", error);
-      alert(error.response?.data?.message || "Error registering");
+      toast.error(error.response?.data?.message || "Error registering");
       // Clear the input fields if there is an error
       setUsername("");
       setPassword("");

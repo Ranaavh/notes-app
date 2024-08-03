@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState("");
@@ -13,9 +14,10 @@ const Login = ({ onLogin }) => {
         password,
       });
       onLogin(response.data.token, response.data.username); // Pass username to onLogin
+      toast.success("Logged in successfully!");
     } catch (error) {
       console.error("Error logging in", error);
-      alert(error.response?.data?.message || "Error logging in");
+      toast.error(error.response?.data?.message || "Error logging in");
       setUsername("");
       setPassword("");
     }
