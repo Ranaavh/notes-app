@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-  useNavigate,
-} from "react-router-dom";
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import CustomNavbar from "./components/Navbar/Navbar";
@@ -49,91 +43,89 @@ const App = () => {
   };
 
   return (
-    
-      <div className="app">
-        {isAuthenticated && (
-          <CustomNavbar onLogout={handleLogout} username={userName} />
-        )}
-        <Routes>
-          <Route
-            path="/notes"
-            element={
-              isAuthenticated ? (
-                <div className="container">
-                  <NotesList token={token} />
-                </div>
-              ) : (
-                <Navigate to="/login" />
-              )
-            }
-          />
-          <Route
-            path="/register"
-            element={
-              !isAuthenticated ? (
-                <div className="auth-wrapper">
-                  <div className="auth-container">
-                    <div className="auth-image">
-                      <h1>Notes App</h1>
-                      <p>Welcome! Create an account to manage your notes.</p>
-                      <img src="/images/register.jpeg" alt="Register" />
-                    </div>
-                    <div className="auth-form">
-                      <Register
-                        onRegister={() => {
-                          toast.success("Registered successfully");
-                          navigate("/login");
-                        }}
-                      />
-                      <button
-                        className="auth-form-button"
-                        onClick={() => navigate("/login")}
-                      >
-                        Already have an account? Login
-                      </button>
-                    </div>
+    <div className="app">
+      {isAuthenticated && (
+        <CustomNavbar onLogout={handleLogout} username={userName} />
+      )}
+      <Routes>
+        <Route
+          path="/notes"
+          element={
+            isAuthenticated ? (
+              <div className="container">
+                <NotesList token={token} />
+              </div>
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            !isAuthenticated ? (
+              <div className="auth-wrapper">
+                <div className="auth-container">
+                  <div className="auth-image">
+                    <h1>Notes App</h1>
+                    <p>Welcome! Create an account to manage your notes.</p>
+                    <img src="/images/register.jpeg" alt="Register" />
+                  </div>
+                  <div className="auth-form">
+                    <Register
+                      onRegister={() => {
+                        toast.success("Registered successfully");
+                        navigate("/login");
+                      }}
+                    />
+                    <button
+                      className="auth-form-button"
+                      onClick={() => navigate("/login")}
+                    >
+                      Already have an account? Login
+                    </button>
                   </div>
                 </div>
-              ) : (
-                <Navigate to="/notes" />
-              )
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              !isAuthenticated ? (
-                <div className="auth-wrapper">
-                  <div className="auth-container">
-                    <div className="auth-image">
-                      <h1>Notes App</h1>
-                      <p>Welcome back! Manage your notes efficiently.</p>
-                      <img src="/images/login.jpeg" alt="Notes App" />
-                    </div>
-                    <div className="auth-form">
-                      <Login onLogin={handleLogin} />
-                      <button
-                        className="auth-form-button"
-                        onClick={() => navigate("/register")}
-                      >
-                        Don't have an account? Sign Up
-                      </button>
-                    </div>
+              </div>
+            ) : (
+              <Navigate to="/notes" />
+            )
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            !isAuthenticated ? (
+              <div className="auth-wrapper">
+                <div className="auth-container">
+                  <div className="auth-image">
+                    <h1>Notes App</h1>
+                    <p>Welcome back! Manage your notes efficiently.</p>
+                    <img src="/images/login.jpeg" alt="Notes App" />
+                  </div>
+                  <div className="auth-form">
+                    <Login onLogin={handleLogin} />
+                    <button
+                      className="auth-form-button"
+                      onClick={() => navigate("/register")}
+                    >
+                      Don't have an account? Sign Up
+                    </button>
                   </div>
                 </div>
-              ) : (
-                <Navigate to="/notes" />
-              )
-            }
-          />
-          <Route
-            path="/"
-            element={<Navigate to={isAuthenticated ? "/notes" : "/login"} />}
-          />
-        </Routes>
-        <Footer />
-      </div>
-    
+              </div>
+            ) : (
+              <Navigate to="/notes" />
+            )
+          }
+        />
+        <Route
+          path="/"
+          element={<Navigate to={isAuthenticated ? "/notes" : "/login"} />}
+        />
+      </Routes>
+      <Footer />
+    </div>
   );
 };
 
