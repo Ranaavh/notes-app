@@ -5,7 +5,7 @@
 
 ### Access the Application
 
-Open your browser and navigate to `https://noteskeeper-project.vercel.app/` to use the Notes Keeper application.
+Open your browser and navigate to https://noteskeeper-project.vercel.app/ to use the Notes Keeper application.
 ## Features
 
 - **User Authentication**: Secure login and registration system using JWT for user authentication.
