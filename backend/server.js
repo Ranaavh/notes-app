@@ -7,7 +7,6 @@ const noteRoutes = require("./routes/noteRoutes");
 
 // Load environment variables
 require("dotenv").config();
-console.log("MONGO_URI:", process.env.MONGO_URI); // This should print your MongoDB URI
 
 const app = express();
 
