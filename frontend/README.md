@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# Notes Keeper - MERN Stack CRUD Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Notes Keeper** is a full-stack notes management application built with the MERN stack (MongoDB, Express.js, React, Node.js). This application allows users to perform CRUD (Create, Read, Update, Delete) operations on their notes, making it a comprehensive tool for managing and organizing personal notes.
 
-## Available Scripts
+### Access the Application
 
-In the project directory, you can run:
+Open your browser and navigate to https://noteskeeper-project.vercel.app/ to use the Notes Keeper application.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **User Authentication**: Secure login and registration system using JWT for user authentication.
+- **Create Notes**: Add new notes with a title and content.
+- **Read Notes**: View a list of all notes with their respective details.
+- **Update Notes**: Edit existing notes to modify their title or content.
+- **Delete Notes**: Remove notes that are no longer needed.
+- **Responsive Design**: User-friendly interface that adapts to different screen sizes.
+- **Floating Action Button**: Quick access to add new notes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+- **Frontend**: React.js with React Bootstrap for styling and a responsive design.
+- **Backend**: Node.js and Express.js to handle API requests and server-side logic.
+- **Database**: MongoDB with Mongoose for data storage and management.
+- **Authentication**: JWT (JSON Web Tokens) for secure user authentication.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup Instructions
 
-### `npm run build`
+### Clone the Repository
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+https://github.com/Ranaavh/notes-keeper.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Navigate to the Project Directory
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+cd mern-notes-keeper
+```
 
-### `npm run eject`
+### Install Dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- For the backend:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  ```bash
+  cd backend
+  npm install
+  ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- For the frontend:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  ```bash
+  cd ../frontend
+  npm install
+  ```
 
-## Learn More
+### Set Up Environment Variables
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Create a `.env` file in the `backend` directory with the necessary environment variables, such as `MONGO_URI` and `JWT_SECRET`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Example `.env` file:
 
-### Code Splitting
+```plaintext
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Start the Application
 
-### Analyzing the Bundle Size
+- Run the backend server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  ```bash
+  cd backend
+  npm start
+  ```
 
-### Making a Progressive Web App
+- Run the frontend application:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+  ```bash
+  cd ../frontend
+  npm start
+  ```
 
-### Advanced Configuration
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Feel free to contribute to this project by submitting issues, pull requests, or feature suggestions. Here are some ways you can contribute:
 
-### Deployment
+- Report bugs or issues
+- Suggest new features or enhancements
+- Submit pull requests with bug fixes or improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## License
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the [MIT License](LICENSE).
