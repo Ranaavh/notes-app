@@ -5,8 +5,7 @@
 .custom-navbar .navbar-nav .nav-link,
 .custom-navbar .navbar-brand {
   color: #fff !important;
-  font-weight: 800;
-  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .custom-navbar .nav-dropdown .dropdown-menu {
@@ -17,11 +16,14 @@
   color: #fff;
 }
 
-
-
 @media screen and (max-width: 768px) {
   .custom-navbar .navbar-nav .nav-link,
   .custom-navbar .navbar-brand {
-    padding:  0 20px ;
+    padding: 0 10px;
   }
+}
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item:focus {
+  background-color: transparent; /* Set to any preferred color */
+  color: inherit; /* Keep the text color */
 }

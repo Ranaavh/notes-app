@@ -4,6 +4,7 @@ const {
   getNotes,
   createNote,
   deleteNote,
+  updateNote, // Add this line
 } = require("../controllers/noteController");
 
 const router = express.Router();
@@ -16,5 +17,8 @@ router.post("/", authMiddleware, createNote);
 
 // Delete note
 router.delete("/:id", authMiddleware, deleteNote);
+
+// Update note
+router.put("/:id", authMiddleware, updateNote); // Add this route
 
 module.exports = router;

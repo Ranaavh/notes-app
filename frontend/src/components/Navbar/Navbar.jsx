@@ -6,7 +6,7 @@ const CustomNavbar = ({ username, onLogout }) => {
   return (
     <Navbar className="custom-navbar" variant="dark" expand="lg" fixed="top">
       <Container>
-        <Navbar.Brand href="#">Notes</Navbar.Brand>
+        <Navbar.Brand href="#">Notes Keeper</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">

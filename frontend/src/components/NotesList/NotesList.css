@@ -5,16 +5,20 @@
   margin: 0 auto;
   margin-top: 90px;
   min-height: 80vh;
+  font-style: italic;
 }
 
 .note-form {
   margin-bottom: 20px;
 }
-
 .note-input {
   margin-bottom: 10px;
+  border: 2px solid #000b44; 
+  border-radius: 4px; 
+  box-shadow: 0 0 5px #031881; 
+  outline: none; 
+  padding: 8px;
 }
-
 .add-note-button {
   display: block;
   width: 100%;
@@ -35,15 +39,10 @@
 
 .note-card {
   width: 18rem;
+  color: #142788 !important;
   background-color: #fff8e1 !important;
-  border-radius: 5px !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1200px;
-  }
+  border-radius: 6px !important;
+  border: 0.5px solid #142788 !important;
 }
 
 .note-form-modal {
@@ -51,7 +50,7 @@
   flex-direction: column;
   gap: 10px;
   margin-bottom: 20px;
-  background-color: #fff;
+  background-color: #f2f2f2;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -59,9 +58,8 @@
 
 .modal-input,
 .modal-textarea {
-  width: 100%;
   padding: 10px;
-  border: 1px solid #ced4da;
+  border: 1px solid #d3d4d4;
   border-radius: 4px;
   margin-bottom: 10px;
 }
@@ -70,32 +68,14 @@
   resize: none;
 }
 
+.modal-add-button {
+  background-color: #142788 !important;
+}
 .note-form button {
   align-self: flex-start;
 }
-
-.note-list {
+.icons-section {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  list-style-type: none;
-  padding: 0;
-  justify-content: center;
-}
-
-.note-item {
-  background-color: #fff;
-  padding: 20px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 250px; /* Adjust the width as needed */
-}
-
-.note-item h3 {
-  margin-top: 0;
-}
-
-.note-item p {
-  margin-bottom: 10px;
+  justify-content: flex-end;
+  margin-top: 10px;
 }

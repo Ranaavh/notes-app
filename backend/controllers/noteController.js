@@ -33,4 +33,24 @@ const deleteNote = async (req, res) => {
   }
 };
 
-module.exports = { getNotes, createNote, deleteNote };
+const updateNote = async (req, res) => {
+  const { title, content } = req.body;
+  try {
+    const note = await Note.findById(req.params.id);
+    if (!note) return res.status(404).json({ message: "Note not found" });
+
+    if (note.user.toString() !== req.user._id.toString()) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    note.title = title;
+    note.content = content;
+
+    await note.save();
+    res.json(note);
+  } catch (error) {
+    res.status(400).json({ message: "Error updating note" });
+  }
+};
+
+module.exports = { getNotes, createNote, deleteNote, updateNote }; // Add updateNote here

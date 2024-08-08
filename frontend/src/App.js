@@ -1,23 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
-import Register from "./components/Register";
-import Login from "./components/Login";
 import CustomNavbar from "./components/Navbar/Navbar";
 import NotesList from "./components/NotesList/NotesList";
 import Footer from "./components/footer/Footer";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import toast from "react-hot-toast";
+import Signinform from "./components/Signinform";
+import Loginform from "./components/Loginform";
 
 const App = () => {
-  const [token, setToken] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userName, setUserName] = useState("");
+  // State variables
+  const [token, setToken] = useState(null); // Stores the authentication token
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Tracks if the user is authenticated
+  const [userName, setUserName] = useState(""); // Stores the username of the authenticated user
+
+  // useNavigate hook for programmatic navigation
   const navigate = useNavigate();
 
+  // useEffect hook to check for stored token and username on component mount
   useEffect(() => {
+    // Retrieve token and username from localStorage
     const storedToken = localStorage.getItem("authToken");
     const storedUserName = localStorage.getItem("userName");
+
+    // If token and username exist, update state and authentication status
     if (storedToken && storedUserName) {
       setToken(storedToken);
       setUserName(storedUserName);
@@ -25,18 +31,28 @@ const App = () => {
     }
   }, []);
 
+  // Handler for login
   const handleLogin = (token, username) => {
+    // Store token and username in localStorage
     localStorage.setItem("authToken", token);
     localStorage.setItem("userName", username);
+
+    // Update state with token and username
     setToken(token);
     setUserName(username);
     setIsAuthenticated(true);
+
+    // Navigate to the notes page after successful login
     navigate("/notes");
   };
 
+  // Handler for logout
   const handleLogout = () => {
+    // Remove token and username from localStorage
     localStorage.removeItem("authToken");
     localStorage.removeItem("userName");
+
+    // Reset state
     setToken(null);
     setUserName("");
     setIsAuthenticated(false);
@@ -44,10 +60,12 @@ const App = () => {
 
   return (
     <div className="app">
+      {/* Render the navigation bar if the user is authenticated */}
       {isAuthenticated && (
         <CustomNavbar onLogout={handleLogout} username={userName} />
       )}
       <Routes>
+        {/* Route for notes page */}
         <Route
           path="/notes"
           element={
@@ -56,69 +74,29 @@ const App = () => {
                 <NotesList token={token} />
               </div>
             ) : (
+              // Redirect to login page if the user is not authenticated
               <Navigate to="/login" />
             )
           }
         />
+        {/* Route for registration page */}
         <Route
           path="/register"
-          element={
-            !isAuthenticated ? (
-              <div className="auth-wrapper">
-                <div className="auth-container">
-                  <div className="auth-image">
-                    <h1>Notes App</h1>
-                    <p>Welcome! Create an account to manage your notes.</p>
-                    <img src="/images/register.jpeg" alt="Register" />
-                  </div>
-                  <div className="auth-form">
-                    <Register
-                      onRegister={() => {
-                        toast.success("Registered successfully");
-                        navigate("/login");
-                      }}
-                    />
-                    <button
-                      className="auth-form-button"
-                      onClick={() => navigate("/login")}
-                    >
-                      Already have an account? Login
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <Navigate to="/notes" />
-            )
-          }
+          element={!isAuthenticated ? <Signinform /> : <Navigate to="/notes" />}
         />
+        {/* Route for login page */}
         <Route
           path="/login"
           element={
             !isAuthenticated ? (
-              <div className="auth-wrapper">
-                <div className="auth-container">
-                  <div className="auth-image">
-                    <h1>Notes App</h1>
-                    <p>Welcome back! Manage your notes efficiently.</p>
-                    <img src="/images/login.jpeg" alt="Notes App" />
-                  </div>
-                  <div className="auth-form">
-                    <Login onLogin={handleLogin} />
-                    <button
-                      className="auth-form-button"
-                      onClick={() => navigate("/register")}
-                    >
-                      Don't have an account? Sign Up
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <Loginform onLogin={handleLogin} />
             ) : (
+              // Redirect to notes page if the user is authenticated
               <Navigate to="/notes" />
             )
           }
         />
+        {/* Default route to redirect based on authentication status */}
         <Route
           path="/"
           element={<Navigate to={isAuthenticated ? "/notes" : "/login"} />}
