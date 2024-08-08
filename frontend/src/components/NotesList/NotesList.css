@@ -13,10 +13,10 @@
 }
 .note-input {
   margin-bottom: 10px;
-  border: 2px solid #000b44; 
-  border-radius: 4px; 
-  box-shadow: 0 0 5px #031881; 
-  outline: none; 
+  border: 2px solid #000b44;
+  border-radius: 4px;
+  box-shadow: 0 0 5px #031881;
+  outline: none;
   padding: 8px;
 }
 .add-note-button {
@@ -40,7 +40,7 @@
 .note-card {
   width: 18rem;
   color: #142788 !important;
-  background-color: #f6f3e9 !important;
+  background-color: #f7f7f8 !important;
   border-radius: 6px !important;
   border: 0.5px solid #142788 !important;
 }
@@ -50,7 +50,6 @@
   flex-direction: column;
   gap: 10px;
   margin-bottom: 20px;
-  background-color: #f2f2f2;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
