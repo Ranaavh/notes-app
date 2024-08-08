@@ -28,7 +28,7 @@ Open your browser and navigate to `https://noteskeeper-project.vercel.app/` to u
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/mern-notes-keeper.git
+https://github.com/Ranaavh/notes-keeper.git
 ```
 
 ### Navigate to the Project Directory
