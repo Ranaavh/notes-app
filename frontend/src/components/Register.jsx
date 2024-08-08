@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../Urls";
 
 const Register = ({ onRegister }) => {
   // State variables for username and password input fields
@@ -17,7 +18,7 @@ const Register = ({ onRegister }) => {
 
     try {
       // Sends a POST request to the registration endpoint with username and password
-      await axios.post("http://localhost:5000/auth/register", {
+      await axios.post(`${API_URL}/auth/register`, {
         username,
         password,
       });

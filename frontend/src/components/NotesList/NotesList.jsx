@@ -4,6 +4,7 @@ import { Container, Form, Button, Modal, Card } from "react-bootstrap";
 import "./NotesList.css";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
+import {API_URL} from "../../Urls";
 import FloatingActionButton from "../FloatingAction/FloatingActionButton";
 
 const NotesList = ({ token }) => {
@@ -21,7 +22,7 @@ const NotesList = ({ token }) => {
       console.log("Token:", token); // Log the token to ensure it's being passed correctly
       try {
         // Fetch notes from the server with authorization header
-        const response = await axios.get("http://localhost:5000/notes", {
+        const response = await axios.get(`${API_URL}/notes`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setNotes(response.data); // Set the fetched notes in state
@@ -40,7 +41,7 @@ const NotesList = ({ token }) => {
       if (editMode) {
         // Update an existing note
         await axios.put(
-          `http://localhost:5000/notes/${currentNoteId}`,
+          `${API_URL}/notes/${currentNoteId}`,
           { title, content },
           {
             headers: { Authorization: `Bearer ${token}` },
@@ -55,7 +56,7 @@ const NotesList = ({ token }) => {
       } else {
         // Add a new note
         const response = await axios.post(
-          "http://localhost:5000/notes",
+          `${API_URL}/notes`,
           { title, content },
           {
             headers: { Authorization: `Bearer ${token}` },
@@ -86,7 +87,7 @@ const NotesList = ({ token }) => {
   // Handle deletion of a note
   const deleteNote = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/notes/${id}`, {
+      await axios.delete(`${API_URL}/notes/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       // Remove the deleted note from the state
