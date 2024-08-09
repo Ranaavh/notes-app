@@ -11,6 +11,7 @@
 .note-form {
   margin-bottom: 20px;
 }
+
 .note-input {
   margin-bottom: 10px;
   border: 2px solid #000b44;
@@ -19,6 +20,7 @@
   outline: none;
   padding: 8px;
 }
+
 .add-note-button {
   display: block;
   width: 100%;
@@ -35,14 +37,24 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  align-items: flex-start; /* Align items to the top of the container */
 }
 
 .note-card {
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Stack content vertically */
   width: 18rem;
   color: #142788 !important;
   background-color: #f7f7f8 !important;
   border-radius: 6px !important;
   border: 0.5px solid #142788 !important;
+  transition: transform 0.2s;
+  padding: 10px; /* Optional: Add some padding inside the card */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.note-card:hover {
+  transform: translateY(-5px);
 }
 
 .note-form-modal {
@@ -70,9 +82,11 @@
 .modal-add-button {
   background-color: #142788 !important;
 }
+
 .note-form button {
   align-self: flex-start;
 }
+
 .icons-section {
   display: flex;
   justify-content: flex-end;
