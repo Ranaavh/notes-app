@@ -3,7 +3,7 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #142788 !important; /* Custom yellow color */
+  background-color: #0a1969 !important; /* Custom blue color !important; /* Custom yellow color */
   border: none !important;
   border-radius: 50% !important;
   width: 56px;
@@ -18,5 +18,5 @@
 }
 
 .fab:hover {
-  background-color: #324ed8 !important; /* Darker yellow for hover effect */
+  background-color: #192a7e !important; /* Darker yellow for hover effect */
 }

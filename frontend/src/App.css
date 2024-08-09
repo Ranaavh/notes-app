@@ -1,6 +1,6 @@
 body {
   font-family: "Playfair Display", serif;
-  background: linear-gradient(135deg, #92b5f5 0%, #98a0b7 100%);
+  background: linear-gradient(135deg, #9cb8eb 0%, #98a0b7 100%);
   color: #333;
   margin: 0;
   padding: 0;
@@ -84,7 +84,7 @@ body {
   margin-top: 10px;
   width: 100%;
   padding: 10px;
-  background: #142788;
+  background: #0a1969;
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -99,7 +99,7 @@ body {
 .auth-form-button {
   width: 100%;
   padding: 10px;
-  background: #142788;
+  background: #0a1969;
   border: none;
   border-radius: 5px;
   color: #fff;

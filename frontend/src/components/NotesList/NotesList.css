@@ -24,7 +24,7 @@
 .add-note-button {
   display: block;
   width: 100%;
-  background-color: #142788 !important;
+  background-color: #0a1969 !important;
   border: none !important;
   border-radius: 5px !important;
   color: #fff !important;
@@ -80,7 +80,7 @@
 }
 
 .modal-add-button {
-  background-color: #142788 !important;
+  background-color: #0a1969 !important;
 }
 
 .note-form button {
